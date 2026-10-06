@@ -207,7 +207,9 @@ logs = [
 2. 写出表达式，统计每个用户出现了几次（返回字典，键为用户名，值为次数）。
 3. 解释为什么第 2 问不能直接用 `len(logs)` 得到结果，需要什么遍历结构？
 
-`error_logs = [log for log in logs if log["level"] == "ERROR"]`
+```python
+error_logs = [log for log in logs if log["level"] == "ERROR"]`
+```
 
 ```python
 count = {}
@@ -217,7 +219,7 @@ for log in logs:
         count[user] += 1
     else:
         count[user] = 1
-    ```
+```
 
 3.因为len(logs)只能得到日志总数，无法统计每个用户分别出现了多少次。
 因此需要使用for循环遍历整个列表，依次取出每条日志中的user，再使用字典记录每个用户出现的次数。
@@ -243,5 +245,6 @@ def safe_divide(a, b):
         return x / y
     except (ValueError, ZeroDivisionError):
         return None
-    ```
+```
+
 有些错误是在程序运行时才发生，且使用try/except可以统一处理这些异常情况。
